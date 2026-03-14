@@ -4,10 +4,10 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Koffi Déo Gratias — Développeur Web & Créateur SaaS</title>
+    <title>K Déo Gratias WOBLESSE — Développeur Web & Créateur SaaS</title>
     <meta name="description"
         content="Ingénieur en Génie Logiciel, Développeur Web et Créateur de Solutions SaaS pour les entreprises africaines. Basé à Lomé, Togo." />
-    <meta property="og:title" content="Koffi Déo Gratias — Développeur Web & Créateur SaaS" />
+    <meta property="og:title" content="K Déo Gratias WOBLESSE — Développeur Web & Créateur SaaS" />
     <meta property="og:type" content="website" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -645,6 +645,20 @@
             background: var(--grad)
         }
 
+        .aav-wrap {
+            margin-bottom: 18px
+        }
+
+        .aav-photo {
+            width: 80px;
+            height: 80px;
+            border-radius: 18px;
+            object-fit: cover;
+            object-position: center top;
+            border: 2px solid var(--border-h);
+            display: block
+        }
+
         .aav {
             width: 68px;
             height: 68px;
@@ -876,6 +890,78 @@
         /* projects */
         #projects {
             background: var(--bg2)
+        }
+
+        .phead-row {
+            display: flex;
+            align-items: baseline;
+            gap: 14px;
+            flex-wrap: wrap;
+            margin-bottom: 11px
+        }
+
+        .phead-row .pt2 {
+            margin-bottom: 0
+        }
+
+        .plink {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            font-size: .78rem;
+            font-weight: 600;
+            color: var(--cyan);
+            text-decoration: none;
+            border: 1px solid rgba(0, 212, 255, .22);
+            padding: 3px 10px;
+            border-radius: 100px;
+            transition: all .25s;
+            white-space: nowrap
+        }
+
+        .plink:hover {
+            background: rgba(0, 212, 255, .1);
+            border-color: var(--cyan)
+        }
+
+        .plink svg {
+            width: 11px;
+            height: 11px;
+            stroke: var(--cyan);
+            fill: none;
+            stroke-width: 2.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            flex-shrink: 0
+        }
+
+        .ptag-status {
+            padding: 4px 10px;
+            border-radius: 6px;
+            background: rgba(124, 77, 255, .1);
+            font-size: .71rem;
+            font-weight: 700;
+            color: var(--violet);
+            letter-spacing: .03em
+        }
+
+        .proj-two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-bottom: 0
+        }
+
+        @media(max-width:700px) {
+            .proj-two-col {
+                grid-template-columns: 1fr
+            }
+
+            .phead-row {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 6px
+            }
         }
 
         .pg {
@@ -1911,7 +1997,7 @@
     <!-- ═══ NAV ═══ -->
     <nav id="nav">
         <div class="nav-in">
-            <a href="#hero" class="logo">KDG<span>.</span></a>
+            <a href="#hero" class="logo">WKDG<span>.</span></a>
             <ul class="nav-links">
                 <li><a href="#about">À propos</a></li>
                 <li><a href="#skills">Stack</a></li>
@@ -2016,8 +2102,14 @@
             <div class="ag">
                 <div class="avis rv">
                     <div class="ac">
-                        <div class="aav">KD</div>
-                        <div class="an">Koffi Déo Gratias</div>
+                        <!-- <div class="aav-wrap">
+                            
+                            <img src=""
+                                alt="K Déo Gratias WOBLESSE" class="aav-photo"
+                                onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+                            <div class="aav" style="display:none">KD</div>
+                        </div> -->
+                        <div class="an">K Déo Gratias WOBLESSE</div>
                         <div class="ar">Ingénieur Génie Logiciel · Créateur SaaS</div>
                         <div class="cr">
                             <span class="chip">Laravel</span><span class="chip">Next.js</span>
@@ -2318,130 +2410,206 @@
             </div>
             <div class="pg">
 
+                <!-- 01 · Espoir Medical -->
                 <div class="pc feat rv">
                     <div class="pnum"><svg>
-                            <use href="#i-pkg" />
-                        </svg>01 · Produit SaaS</div>
-                    <h3 class="pt2">StockZoom</h3>
-                    <p class="pd">Solution complète de gestion de stock et de ventes destinée aux PME africaines. Conçue
-                        pour simplifier la gestion quotidienne des commerces et petites entreprises.</p>
-                    <div class="ftit">Fonctionnalités clés</div>
-                    <div class="fl2">
-                        <div class="fi2"><svg>
-                                <use href="#i-check" />
-                            </svg>Gestion des produits &amp; inventaire en temps réel</div>
-                        <div class="fi2"><svg>
-                                <use href="#i-check" />
-                            </svg>Suivi des ventes &amp; statistiques avancées</div>
-                        <div class="fi2"><svg>
-                                <use href="#i-check" />
-                            </svg>Alertes stock bas &amp; réapprovisionnement</div>
-                        <div class="fi2"><svg>
-                                <use href="#i-check" />
-                            </svg>Interface intuitive pour non-techniciens</div>
+                            <use href="#i-pulse" />
+                        </svg>01 · E-commerce &amp; Gestion de stock</div>
+                    <div class="phead-row">
+                        <h3 class="pt2">Espoir Medical</h3>
+                        <a href="https://espoir-medical.com" target="_blank" rel="noopener" class="plink">
+                            espoir-medical.com
+                            <svg width="13" height="13">
+                                <use href="#i-arrowup" />
+                            </svg>
+                        </a>
+                    </div>
+                    <p class="pd">Plateforme e-commerce conçue pour une entreprise de distribution de matériel médical.
+                        Combine une boutique en ligne avec un système de gestion de stock sur mesure — les produits
+                        enregistrés en back-office sont automatiquement synchronisés avec la vitrine publique. Les
+                        visiteurs peuvent parcourir les produits et contacter directement le vendeur via WhatsApp pour
+                        obtenir les prix ou finaliser une commande.</p>
+                    <div class="proj-two-col">
+                        <div>
+                            <div class="ftit">Solution développée</div>
+                            <div class="fl2">
+                                <div class="fi2"><svg>
+                                        <use href="#i-check" />
+                                    </svg>Application de gestion de stock (admin)</div>
+                                <div class="fi2"><svg>
+                                        <use href="#i-check" />
+                                    </svg>Synchronisation automatique boutique ↔ stock</div>
+                                <div class="fi2"><svg>
+                                        <use href="#i-check" />
+                                    </svg>Canal de conversion direct via WhatsApp</div>
+                                <div class="fi2"><svg>
+                                        <use href="#i-check" />
+                                    </svg>Gestion des produits, catégories &amp; disponibilités</div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="ftit">Résultat client</div>
+                            <div class="fl2">
+                                <div class="fi2"><svg>
+                                        <use href="#i-check" />
+                                    </svg>Outil interne de gestion de stock</div>
+                                <div class="fi2"><svg>
+                                        <use href="#i-check" />
+                                    </svg>Vitrine en ligne des produits</div>
+                                <div class="fi2"><svg>
+                                        <use href="#i-check" />
+                                    </svg>Canal direct de conversion WhatsApp</div>
+                            </div>
+                        </div>
                     </div>
                     <div class="pft">
                         <div class="ptr">
                             <span class="ptag">Laravel</span>
-                            <span class="ptag">Tailwind CSS</span>
                             <span class="ptag">MySQL</span>
+                            <span class="ptag">Tailwind CSS</span>
+                            <span class="ptag">WhatsApp API</span>
                         </div>
-                        <div class="parr"><svg>
+                        <a href="https://espoir-medical.com" target="_blank" rel="noopener" class="parr"
+                            title="Voir le site">
+                            <svg>
                                 <use href="#i-arrowup" />
-                            </svg></div>
+                            </svg>
+                        </a>
                     </div>
                 </div>
 
-                <!-- <div class="pc rv">
+                <!-- 02 · Mirabelle -->
+                <div class="pc rv d1">
                     <div class="pnum"><svg>
-                            <use href="#i-cal" />
-                        </svg>02 · Plateforme SaaS</div>
-                    <h3 class="pt2">Surrdv</h3>
-                    <p class="pd">Plateforme SaaS de prise de rendez-vous pour artisans et professionnels africains.
-                        Digitalisation complète de la gestion des agendas.</p>
+                            <use href="#i-layers" />
+                        </svg>02 · Catalogue numérique</div>
+                    <div class="phead-row">
+                        <h3 class="pt2">Mirabelle</h3>
+                        <a href="https://mirabelle.vercel.app" target="_blank" rel="noopener" class="plink">
+                            mirabelle.vercel.app
+                            <svg width="13" height="13">
+                                <use href="#i-arrowup" />
+                            </svg>
+                        </a>
+                    </div>
+                    <p class="pd">Catalogue numérique de restaurant présentant les plats avec images et descriptions.
+                        Les clients accèdent au menu depuis leur téléphone via QR Code et passent commande directement
+                        par WhatsApp.</p>
                     <div class="ftit">Fonctionnalités</div>
                     <div class="fl2">
                         <div class="fi2"><svg>
                                 <use href="#i-check" />
-                            </svg>Réservation en ligne 24h/24</div>
+                            </svg>Menu numérique accessible via QR Code</div>
                         <div class="fi2"><svg>
                                 <use href="#i-check" />
-                            </svg>Gestion calendrier &amp; créneaux</div>
+                            </svg>Catalogue moderne 100% mobile-first</div>
                         <div class="fi2"><svg>
                                 <use href="#i-check" />
-                            </svg>Gestion clients &amp; employés</div>
+                            </svg>Système de commande via WhatsApp</div>
                         <div class="fi2"><svg>
                                 <use href="#i-check" />
-                            </svg>Notifications automatiques</div>
+                            </svg>QR Code personnalisé fourni au restaurant</div>
                     </div>
                     <div class="pft">
                         <div class="ptr">
-                            <span class="ptag">Laravel</span><span class="ptag">Next.js</span><span class="ptag">API
-                                REST</span>
+                            <span class="ptag">Next.js</span>
+                            <span class="ptag">Tailwind CSS</span>
+                            <span class="ptag">Vercel</span>
+                            <span class="ptag">WhatsApp</span>
                         </div>
-                        <div class="parr"><svg>
+                        <a href="https://mirabelle.vercel.app" target="_blank" rel="noopener" class="parr"
+                            title="Voir le site">
+                            <svg>
                                 <use href="#i-arrowup" />
-                            </svg></div>
+                            </svg>
+                        </a>
                     </div>
-                </div> -->
+                </div>
 
-                <!-- <div class="pc rv d1">
-                    <div class="pnum"><svg>
-                            <use href="#i-home" />
-                        </svg>03 · Marketplace</div>
-                    <h3 class="pt2">Plateforme Immobilière</h3>
-                    <p class="pd">Mise en relation immobilière au Togo. Facilite la recherche de logements pour
-                        étudiants, particuliers, location et vente de biens.</p>
-                    <div class="ftit">Objectifs</div>
-                    <div class="fl2">
-                        <div class="fi2"><svg>
-                                <use href="#i-check" />
-                            </svg>Recherche de logements simplifiée</div>
-                        <div class="fi2"><svg>
-                                <use href="#i-check" />
-                            </svg>Mise en relation propriétaires/locataires</div>
-                        <div class="fi2"><svg>
-                                <use href="#i-check" />
-                            </svg>Location &amp; vente de biens immobiliers</div>
-                    </div>
-                    <div class="pft">
-                        <div class="ptr">
-                            <span class="ptag">Next.js</span><span class="ptag">Laravel</span><span class="ptag">Maps
-                                API</span>
-                        </div>
-                        <div class="parr"><svg>
-                                <use href="#i-arrowup" />
-                            </svg></div>
-                    </div>
-                </div> -->
-
+                <!-- 03 · Anitech Africa -->
                 <div class="pc rv d2">
                     <div class="pnum"><svg>
-                            <use href="#i-pulse" />
-                        </svg>02 · Santé Digitale</div>
-                    <h3 class="pt2">RDV Médical</h3>
-                    <p class="pd">Digitalisation de la prise de rendez-vous médicaux. Modernise l'accès aux soins et
-                        simplifie la gestion des plannings pour médecins et patients.</p>
-                    <div class="ftit">Impact</div>
+                            <use href="#i-trend" />
+                        </svg>03 · Agri-tech · En conception</div>
+                    <div class="phead-row">
+                        <h3 class="pt2">Anitech Africa</h3>
+                        <a href="https://anitechafrica.com" target="_blank" rel="noopener" class="plink">
+                            anitechafrica.com
+                            <svg width="13" height="13">
+                                <use href="#i-arrowup" />
+                            </svg>
+                        </a>
+                    </div>
+                    <p class="pd">Plateforme visant à accompagner les acteurs agricoles dans la gestion de projets et
+                        l'analyse des risques. J'ai développé la vitrine officielle pour présenter la vision et les
+                        objectifs avant le lancement du MVP.</p>
+                    <div class="ftit">Vitrine développée pour</div>
                     <div class="fl2">
                         <div class="fi2"><svg>
                                 <use href="#i-check" />
-                            </svg>Accès aux soins facilité</div>
+                            </svg>Présenter l'initiative &amp; la vision</div>
                         <div class="fi2"><svg>
                                 <use href="#i-check" />
-                            </svg>Gestion des plannings médecins</div>
+                            </svg>Expliquer les fonctionnalités prévues</div>
                         <div class="fi2"><svg>
                                 <use href="#i-check" />
-                            </svg>Réduction des files d'attente</div>
+                            </svg>Préparer le lancement du MVP</div>
                     </div>
                     <div class="pft">
                         <div class="ptr">
-                            <span class="ptag">React</span><span class="ptag">Laravel</span><span
-                                class="ptag">TypeScript</span>
+                            <span class="ptag">Next.js</span>
+                            <span class="ptag">Tailwind CSS</span>
+                            <span class="ptag-status">En conception</span>
                         </div>
-                        <div class="parr"><svg>
+                        <a href="https://anitechafrica.com" target="_blank" rel="noopener" class="parr"
+                            title="Voir le site">
+                            <svg>
                                 <use href="#i-arrowup" />
-                            </svg></div>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 04 · Oclinik -->
+                <div class="pc rv d3">
+                    <div class="pnum"><svg>
+                            <use href="#i-cal" />
+                        </svg>04 · Santé Digitale · En développement</div>
+                    <div class="phead-row">
+                        <h3 class="pt2">Oclinik</h3>
+                        <a href="https://oclinik.com" target="_blank" rel="noopener" class="plink">
+                            oclinik.com
+                            <svg width="13" height="13">
+                                <use href="#i-arrowup" />
+                            </svg>
+                        </a>
+                    </div>
+                    <p class="pd">Plateforme numérique pour faciliter la gestion des cabinets médicaux et la prise de
+                        rendez-vous en ligne. J'ai conçu la vitrine présentant la solution et ses futures
+                        fonctionnalités.</p>
+                    <div class="ftit">Fonctionnalités prévues</div>
+                    <div class="fl2">
+                        <div class="fi2"><svg>
+                                <use href="#i-check" />
+                            </svg>Prise de rendez-vous médicaux en ligne</div>
+                        <div class="fi2"><svg>
+                                <use href="#i-check" />
+                            </svg>Gestion des consultations</div>
+                        <div class="fi2"><svg>
+                                <use href="#i-check" />
+                            </svg>Gestion des patients pour établissements</div>
+                    </div>
+                    <div class="pft">
+                        <div class="ptr">
+                            <span class="ptag">Next.js</span>
+                            <span class="ptag">Tailwind CSS</span>
+                            <span class="ptag-status">En développement</span>
+                        </div>
+                        <a href="https://oclinik.com" target="_blank" rel="noopener" class="parr" title="Voir le site">
+                            <svg>
+                                <use href="#i-arrowup" />
+                            </svg>
+                        </a>
                     </div>
                 </div>
 
@@ -2583,7 +2751,9 @@
                                 </svg></div>
                             <div>
                                 <div class="ccl">Email</div>
-                                <div class="ccv">kwoblesse@gmail.com</div>
+                                <div class="ccv"><span class="__cf_email__"
+                                        data-cfemail="bcd7cbd3ded0d9cfcfd9fcdbd1ddd5d092dfd3d1">kwoblesse@gmail.com</span>
+                                </div>
                             </div>
                         </a>
                         <a href="tel:+22899866863" class="cc">
@@ -2624,7 +2794,7 @@
                             </svg>
                             WhatsApp
                         </a>
-                        <a href="mailto:kwoblesse@gmail.com" class="bem">
+                        <a href="/cdn-cgi/l/email-protection#751e021a171910060610351218141c195b161a18" class="bem">
                             <svg>
                                 <use href="#i-mail" />
                             </svg>Email
@@ -2668,7 +2838,7 @@
         <div class="wrap">
             <div class="ftg">
                 <div>
-                    <div class="logo" style="font-size:1.3rem">KDG<span>.</span></div>
+                    <div class="logo" style="font-size:1.3rem">WKDG<span>.</span></div>
                     <p class="ftd">Ingénieur en Génie Logiciel et créateur de solutions SaaS pour les entreprises
                         africaines. Basé à Lomé, Togo.</p>
                 </div>
@@ -2685,7 +2855,9 @@
                 <div>
                     <div class="fth">Contact</div>
                     <ul class="ftl">
-                        <li><a href="mailto:kwoblesse@gmail.com">kwoblesse@gmail.com</a></li>
+                        <li><a href="mailto:kwoblesse@gmail.com"><span class="__cf_email__"
+                                    data-cfemail="dbb0acb4b9b7bea8a8be9bbcb6bab2b7f5b8b4b6">kwoblesse@gmail.com</span></a>
+                        </li>
                         <li><a href="tel:+22899866863">+228 99 86 68 63</a></li>
                         <li><a href="tel:+22891902824">+228 91 90 28 24</a></li>
                         <li><a href="https://wa.me/22899866863" target="_blank">WhatsApp</a></li>
@@ -2693,10 +2865,10 @@
                 </div>
             </div>
             <div class="ftb">
-                <span>© 2025 Koffi Déo Gratias — Tous droits réservés</span>
-                <div class="ftbr">Fait avec <svg viewBox="0 0 24 24" style="color:#ef4444">
+                <span>© 2026 K Déo Gratias WOBLESSE — Tous droits réservés</span>
+                <!-- <div class="ftbr">Fait avec <svg viewBox="0 0 24 24" style="color:#ef4444">
                         <use href="#i-heart" />
-                    </svg> depuis Lomé, Togo</div>
+                    </svg> depuis Lomé, Togo</div> -->
             </div>
         </div>
     </footer>
@@ -2709,6 +2881,7 @@
         <span class="toast-t">Message envoyé !</span>
     </div>
 
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
     <script>
         // theme
         const html = document.documentElement, tbtn = document.getElementById('themeBtn');
