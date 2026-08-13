@@ -2,1384 +2,1023 @@
 <html lang="fr">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>K. Déo Gratias Woblesse — Développeur Web & Créateur SaaS</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WK Déo Gratias — Ingénieur full-stack & développeur de produits numériques</title>
     <meta name="description"
-        content="Ingénieur en Génie Logiciel, développeur web et créateur de solutions SaaS pour les entreprises africaines. Basé à Lomé, Togo." />
-    <meta property="og:title" content="K. Déo Gratias Woblesse — Développeur Web & Créateur SaaS" />
-    <meta property="og:type" content="website" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        content="Ingénieur full-stack et créateur de SaaS basé à Lomé, Togo. Je construis des plateformes web et des applications desktop pour les entreprises africaines.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="assets/style.css">
+    <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
     <link
-        href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap"
-        rel="stylesheet" />
+        href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Work+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap"
+        rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        bg: '#F6F7FB',
+                        surface: '#FFFFFF',
+                        surface2: '#EEF0F8',
+                        border: '#E3E5F1',
+                        ink: '#14152B',
+                        muted: '#5B5D7A',
+                        blue: '#1F3BFF',
+                        orange: '#FF6B35',
+                        gold: '#E8A317',
+                    },
+                    fontFamily: {
+                        display: ['"Bricolage Grotesque"', 'sans-serif'],
+                        body: ['"Work Sans"', 'sans-serif'],
+                        mono: ['"JetBrains Mono"', 'monospace'],
+                    },
+                },
+            },
+        }
+    </script>
+
     <style>
-        :root {
-            --paper: #fbfaf8;
-            --paper-2: #f2f0eb;
-            --panel: #ffffff;
-            --ink: #171512;
-            --ink-2: #5b564d;
-            --ink-3: #a39c8e;
-            --line: #e4dfd4;
-            --line-strong: #d3ccbb;
-            --accent: #8a5a1f;
-            --accent-soft: #f1e6d3;
-            --r: 3px;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
         html {
             scroll-behavior: smooth;
         }
 
         body {
-            font-family: 'IBM Plex Sans', sans-serif;
-            background: var(--paper);
-            color: var(--ink);
-            line-height: 1.6;
-            overflow-x: hidden;
+            background-color: #F6F7FB;
         }
 
         ::selection {
-            background: var(--accent-soft);
+            background: #1F3BFF;
+            color: #FFFFFF;
         }
 
-        a {
-            color: inherit;
+        .noise {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.02'/%3E%3C/svg%3E");
+            pointer-events: none;
         }
 
-        .serif {
-            font-family: 'Newsreader', serif;
+        .glow {
+            background: radial-gradient(circle at 15% 10%, rgba(31, 59, 255, 0.10), transparent 40%),
+                radial-gradient(circle at 85% 30%, rgba(255, 107, 53, 0.10), transparent 40%),
+                radial-gradient(circle at 60% 90%, rgba(232, 163, 23, 0.10), transparent 40%);
         }
 
-        .mono {
-            font-family: 'IBM Plex Mono', monospace;
+        .marquee-track {
+            animation: marquee 28s linear infinite;
         }
 
-        .wrap {
-            max-width: 1080px;
-            margin: 0 auto;
-            padding: 0 28px;
+        @keyframes marquee {
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(-50%);
+            }
         }
 
-        /* ── reveal on scroll (single, quiet) ── */
-        .rv {
-            opacity: 0;
-            transform: translateY(14px);
-            transition: opacity .5s ease, transform .5s ease;
+        @media (prefers-reduced-motion: reduce) {
+            .marquee-track {
+                animation: none;
+            }
         }
 
-        .rv.in {
-            opacity: 1;
-            transform: none;
+        .receipt {
+            background: #FFFFFF;
+            color: #14152B;
+            position: relative;
+            border: 1px solid #E3E5F1;
+            clip-path: polygon(0% 1.2%, 3% 0%, 6% 1.2%, 9% 0%, 12% 1.2%, 15% 0%, 18% 1.2%, 21% 0%, 24% 1.2%, 27% 0%, 30% 1.2%, 33% 0%, 36% 1.2%, 39% 0%, 42% 1.2%, 45% 0%, 48% 1.2%, 51% 0%, 54% 1.2%, 57% 0%, 60% 1.2%, 63% 0%, 66% 1.2%, 69% 0%, 72% 1.2%, 75% 0%, 78% 1.2%, 81% 0%, 84% 1.2%, 87% 0%, 90% 1.2%, 93% 0%, 96% 1.2%, 99% 0%, 100% 1.2%,
+                    100% 98.8%, 97% 100%, 94% 98.8%, 91% 100%, 88% 98.8%, 85% 100%, 82% 98.8%, 79% 100%, 76% 98.8%, 73% 100%, 70% 98.8%, 67% 100%, 64% 98.8%, 61% 100%, 58% 98.8%, 55% 100%, 52% 98.8%, 49% 100%, 46% 98.8%, 43% 100%, 40% 98.8%, 37% 100%, 34% 98.8%, 31% 100%, 28% 98.8%, 25% 100%, 22% 98.8%, 19% 100%, 16% 98.8%, 13% 100%, 10% 98.8%, 7% 100%, 4% 98.8%, 1% 100%, 0% 98.8%);
+            padding: 2.5rem 1.75rem 3rem;
         }
 
-        .rv.d1 { transition-delay: .06s; }
-        .rv.d2 { transition-delay: .12s; }
-        .rv.d3 { transition-delay: .18s; }
+        .dotted-line {
+            border-bottom: 2px dotted #14152B26;
+        }
 
-        /* ── eyebrow label ── */
         .eyebrow {
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: .72rem;
-            letter-spacing: .04em;
-            color: var(--accent);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin-bottom: 14px;
-        }
-
-        .eyebrow::before {
-            content: '';
-            width: 16px;
-            height: 1px;
-            background: var(--accent);
-        }
-
-        .h2 {
-            font-family: 'Newsreader', serif;
-            font-weight: 500;
-            font-size: clamp(1.9rem, 3.6vw, 2.7rem);
-            line-height: 1.14;
-            letter-spacing: -.01em;
-            color: var(--ink);
-            margin-bottom: 16px;
-        }
-
-        .lede {
-            font-size: 1.02rem;
-            color: var(--ink-2);
-            max-width: 540px;
-            line-height: 1.75;
-        }
-
-        /* ── nav ── */
-        #nav {
-            position: fixed;
-            top: 0; left: 0; right: 0;
-            z-index: 900;
-            height: 64px;
-            display: flex;
-            align-items: center;
-            background: rgba(251, 250, 248, .92);
-            border-bottom: 1px solid transparent;
-            transition: border-color .25s ease;
-        }
-
-        #nav.sc { border-color: var(--line); }
-
-        #nav .wrap { display: flex; align-items: center; justify-content: space-between; width: 100%; }
-
-        .brand {
-            font-family: 'Newsreader', serif;
+            font-family: 'Work Sans', sans-serif;
             font-weight: 600;
-            font-size: 1.15rem;
-            text-decoration: none;
-            color: var(--ink);
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
         }
 
-        .brand span { color: var(--accent); }
+        .mono-tag {
+            font-family: 'JetBrains Mono', monospace;
+        }
 
-        .nav-links { display: flex; align-items: center; gap: 30px; list-style: none; }
+        .card-hover {
+            transition: transform .35s cubic-bezier(.2, .8, .2, 1), border-color .35s ease, box-shadow .35s ease;
+        }
 
-        .nav-links a {
-            font-size: .82rem;
-            color: var(--ink-2);
-            text-decoration: none;
+        .card-hover:hover {
+            transform: translateY(-6px);
+            border-color: rgba(31, 59, 255, 0.35);
+            box-shadow: 0 20px 45px -22px rgba(31, 59, 255, 0.30);
+        }
+
+        .photo-frame {
+            border-radius: 42% 58% 63% 37% / 45% 40% 60% 55%;
+            overflow: hidden;
             position: relative;
-            padding-bottom: 3px;
-            transition: color .2s;
+            box-shadow: 0 25px 50px -20px rgba(20, 21, 43, 0.25);
         }
 
-        .nav-links a::after {
-            content: '';
+        .photo-frame::after {
+            content: "";
             position: absolute;
-            left: 0; bottom: 0;
-            width: 0; height: 1px;
-            background: var(--accent);
-            transition: width .22s ease;
+            inset: 0;
+            border-radius: inherit;
+            box-shadow: inset 0 0 0 6px #FFFFFF, inset 0 0 0 8px #E3E5F1;
         }
 
-        .nav-links a:hover, .nav-links a.act { color: var(--ink); }
-        .nav-links a:hover::after, .nav-links a.act::after { width: 100%; }
-
-        .nav-cta {
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: .76rem;
-            padding: 9px 16px;
-            border: 1px solid var(--ink);
-            border-radius: var(--r);
-            text-decoration: none;
-            color: var(--ink);
-            transition: background .2s, color .2s;
-        }
-
-        .nav-cta:hover { background: var(--ink); color: var(--paper); }
-
-        .ham { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 6px; }
-        .ham span { display: block; width: 20px; height: 1.5px; background: var(--ink); }
-
-        .mobm {
-            display: none;
-            position: fixed;
-            top: 64px; left: 0; right: 0;
-            z-index: 899;
-            background: var(--panel);
-            border-bottom: 1px solid var(--line);
-            flex-direction: column;
-            padding: 10px 28px 18px;
-        }
-
-        .mobm a {
-            padding: 12px 0;
-            border-bottom: 1px solid var(--line);
-            text-decoration: none;
-            color: var(--ink-2);
-            font-size: .92rem;
-        }
-
-        @media (max-width: 860px) {
-            .nav-links, .nav-cta { display: none; }
-            .ham { display: flex; }
-        }
-
-        /* ── hero ── */
-        #hero {
-            min-height: 92vh;
-            display: flex;
-            align-items: center;
-            padding: 130px 0 70px;
-            border-bottom: 1px solid var(--line);
-        }
-
-        .hero-grid {
-            display: grid;
-            grid-template-columns: 1fr auto;
-            gap: 40px;
-            align-items: end;
-        }
-
-        .avail {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: .74rem;
-            color: var(--ink-2);
-            padding: 6px 12px;
-            border: 1px solid var(--line-strong);
-            border-radius: 20px;
-            margin-bottom: 30px;
-        }
-
-        .avail .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
-
-        .h1 {
-            font-family: 'Newsreader', serif;
-            font-weight: 500;
-            font-size: clamp(2.4rem, 6vw, 4.1rem);
-            line-height: 1.05;
-            letter-spacing: -.015em;
-            margin-bottom: 26px;
-            max-width: 700px;
-        }
-
-        .h1 em {
-            font-style: italic;
-            color: var(--accent);
-        }
-
-        .hero-sub {
-            font-size: 1.08rem;
-            color: var(--ink-2);
-            max-width: 560px;
-            line-height: 1.75;
-            margin-bottom: 40px;
-        }
-
-        .btn-row { display: flex; gap: 12px; flex-wrap: wrap; }
-
-        .btn-p {
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: .82rem;
-            padding: 13px 24px;
-            background: var(--ink);
-            color: var(--paper);
-            text-decoration: none;
-            border-radius: var(--r);
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            transition: background .2s;
-        }
-
-        .btn-p:hover { background: var(--accent); }
-
-        .btn-s {
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: .82rem;
-            padding: 13px 24px;
-            border: 1px solid var(--line-strong);
-            color: var(--ink);
-            text-decoration: none;
-            border-radius: var(--r);
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            transition: border-color .2s, color .2s;
-        }
-
-        .btn-s:hover { border-color: var(--ink); }
-
-        .hero-tag {
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: .74rem;
-            color: var(--ink-3);
-            writing-mode: vertical-rl;
-            text-orientation: mixed;
-            padding-bottom: 6px;
-            letter-spacing: .04em;
-        }
-
-        @media (max-width: 700px) {
-            .hero-grid { grid-template-columns: 1fr; }
-            .hero-tag { display: none; }
-        }
-
-        /* ── stats strip ── */
-        .stats {
-            border-bottom: 1px solid var(--line);
-            background: var(--paper-2);
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-        }
-
-        .stat {
-            padding: 34px 24px;
-            border-right: 1px solid var(--line);
-            text-align: left;
-        }
-
-        .stat:last-child { border-right: none; }
-
-        .stat b {
-            font-family: 'Newsreader', serif;
-            font-weight: 500;
-            font-size: 2.2rem;
-            display: block;
-            color: var(--ink);
-        }
-
-        .stat span {
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: .72rem;
-            color: var(--ink-3);
-            text-transform: uppercase;
-            letter-spacing: .05em;
-        }
-
-        @media (max-width: 700px) {
-            .stats-grid { grid-template-columns: repeat(2, 1fr); }
-            .stat:nth-child(2) { border-right: none; }
-            .stat { border-bottom: 1px solid var(--line); }
-        }
-
-        /* ── section spacing ── */
-        section { padding: 96px 0; }
-        section.alt { background: var(--paper-2); }
-
-        /* ── about ── */
-        .about-grid {
-            display: grid;
-            grid-template-columns: .85fr 1.15fr;
-            gap: 64px;
-            align-items: start;
-        }
-
-        .id-card {
-            border: 1px solid var(--line-strong);
-            border-radius: var(--r);
-            padding: 28px;
-            background: var(--panel);
-            position: relative;
-        }
-
-        .id-card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 2px;
-            background: var(--ink);
-        }
-
-        .id-name {
-            font-family: 'Newsreader', serif;
-            font-weight: 600;
-            font-size: 1.2rem;
-            margin-bottom: 4px;
-        }
-
-        .id-role {
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: .76rem;
-            color: var(--accent);
-            margin-bottom: 18px;
-        }
-
-        .id-tags { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 20px; }
-
-        .tag {
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: .7rem;
-            padding: 5px 10px;
-            border: 1px solid var(--line-strong);
-            border-radius: 20px;
-            color: var(--ink-2);
-        }
-
-        .id-loc {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding-top: 18px;
-            border-top: 1px solid var(--line);
-            font-size: .85rem;
-            color: var(--ink-2);
-        }
-
-        .about-text p {
-            font-size: .98rem;
-            color: var(--ink-2);
-            line-height: 1.8;
-            margin-bottom: 16px;
-        }
-
-        .about-points {
-            margin-top: 28px;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .point {
-            display: flex;
-            align-items: baseline;
-            gap: 12px;
-            font-size: .9rem;
-            color: var(--ink-2);
-        }
-
-        .point .n {
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: .74rem;
-            color: var(--accent);
-            flex-shrink: 0;
-            width: 22px;
-        }
-
-        /* ── skills ── */
-        .sk-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1px;
-            background: var(--line);
-            border: 1px solid var(--line);
-            margin-top: 48px;
-        }
-
-        .sk-card {
-            background: var(--panel);
-            padding: 26px;
-        }
-
-        .sk-head {
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: .72rem;
-            text-transform: uppercase;
-            letter-spacing: .05em;
-            color: var(--ink-3);
-            margin-bottom: 16px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid var(--line);
-        }
-
-        .sk-items { display: flex; flex-wrap: wrap; gap: 8px; }
-
-        .sk-item {
-            font-size: .82rem;
-            color: var(--ink-2);
-            padding: 5px 0;
-        }
-
-        .sk-item::after { content: '·'; margin-left: 8px; color: var(--ink-3); }
-        .sk-item:last-child::after { content: ''; }
-
-        @media (max-width: 860px) { .sk-grid { grid-template-columns: 1fr; } }
-
-        /* ── projects ── */
-        .pj {
-            border: 1px solid var(--line);
-            border-radius: var(--r);
-            padding: 32px;
-            background: var(--panel);
-            margin-bottom: 22px;
-            transition: border-color .2s;
-        }
-
-        .pj:hover { border-color: var(--line-strong); }
-
-        .pj-eyebrow {
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: .72rem;
-            color: var(--ink-3);
-            margin-bottom: 12px;
-        }
-
-        .pj-title-row {
-            display: flex;
-            align-items: baseline;
-            gap: 16px;
-            flex-wrap: wrap;
-            margin-bottom: 12px;
-        }
-
-        .pj-title {
-            font-family: 'Newsreader', serif;
-            font-weight: 500;
-            font-size: 1.5rem;
-            color: var(--ink);
-        }
-
-        .pj.featured .pj-title { font-size: 1.9rem; }
-
-        .pj-link {
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: .74rem;
-            color: var(--accent);
-            text-decoration: none;
-            border-bottom: 1px solid var(--accent-soft);
-        }
-
-        .pj-link:hover { border-color: var(--accent); }
-
-        .pj-desc {
-            font-size: .9rem;
-            color: var(--ink-2);
-            line-height: 1.75;
-            margin-bottom: 20px;
-            max-width: 640px;
-        }
-
-        .pj-cols {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 24px;
-            margin-bottom: 20px;
-        }
-
-        .pj-col-h {
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: .7rem;
-            text-transform: uppercase;
-            letter-spacing: .05em;
-            color: var(--ink-3);
-            margin-bottom: 10px;
-        }
-
-        .pj-list { display: flex; flex-direction: column; gap: 6px; }
-
-        .pj-list div {
-            font-size: .84rem;
-            color: var(--ink-2);
-            padding-left: 14px;
-            position: relative;
-        }
-
-        .pj-list div::before {
-            content: '—';
-            position: absolute;
-            left: 0;
-            color: var(--accent);
-        }
-
-        .pj-foot {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding-top: 18px;
-            border-top: 1px solid var(--line);
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .pj-tags { display: flex; flex-wrap: wrap; gap: 7px; }
-
-        .ptag {
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: .68rem;
-            padding: 4px 9px;
-            background: var(--paper-2);
-            color: var(--ink-2);
-            border-radius: 3px;
-        }
-
-        .ptag.status { background: var(--accent-soft); color: var(--accent); }
-
-        @media (max-width: 700px) { .pj-cols { grid-template-columns: 1fr; gap: 16px; } }
-
-        /* ── services ── */
-        .svc-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 0;
-            border-top: 1px solid var(--line);
-            border-left: 1px solid var(--line);
-            margin-top: 48px;
-        }
-
-        .svc {
-            padding: 30px 26px;
-            border-right: 1px solid var(--line);
-            border-bottom: 1px solid var(--line);
-        }
-
-        .svc-n {
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: .72rem;
-            color: var(--accent);
-            margin-bottom: 14px;
-        }
-
-        .svc-t {
-            font-family: 'Newsreader', serif;
-            font-weight: 600;
-            font-size: 1.08rem;
-            margin-bottom: 10px;
-        }
-
-        .svc-d { font-size: .85rem; color: var(--ink-2); line-height: 1.7; }
-
-        @media (max-width: 860px) { .svc-grid { grid-template-columns: repeat(2, 1fr); } }
-        @media (max-width: 560px) { .svc-grid { grid-template-columns: 1fr; } }
-
-        /* ── timeline ── */
-        .tl { max-width: 700px; margin-top: 48px; }
-
-        .tl-item {
-            display: grid;
-            grid-template-columns: 90px 1fr;
-            gap: 20px;
-            padding: 26px 0;
-            border-top: 1px solid var(--line);
-        }
-
-        .tl-item:last-child { border-bottom: 1px solid var(--line); }
-
-        .tl-year {
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: .78rem;
-            color: var(--ink-3);
-        }
-
-        .tl-eyebrow {
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: .72rem;
-            color: var(--accent);
-            margin-bottom: 6px;
-        }
-
-        .tl-title {
-            font-family: 'Newsreader', serif;
-            font-weight: 600;
-            font-size: 1.08rem;
-            margin-bottom: 8px;
-        }
-
-        .tl-desc { font-size: .86rem; color: var(--ink-2); line-height: 1.72; }
-
-        @media (max-width: 560px) { .tl-item { grid-template-columns: 1fr; gap: 6px; } }
-
-        /* ── contact ── */
-        .ct-grid {
-            display: grid;
-            grid-template-columns: 1fr 1.2fr;
-            gap: 56px;
-            margin-top: 48px;
-        }
-
-        .cc {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            padding: 18px 20px;
-            border: 1px solid var(--line);
-            border-radius: var(--r);
-            text-decoration: none;
-            color: var(--ink);
-            margin-bottom: 12px;
-            transition: border-color .2s;
-        }
-
-        .cc:hover { border-color: var(--ink); }
-
-        .cc-lbl {
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: .68rem;
-            text-transform: uppercase;
-            letter-spacing: .05em;
-            color: var(--ink-3);
-            margin-bottom: 3px;
-        }
-
-        .cc-val { font-family: 'Newsreader', serif; font-weight: 600; font-size: .92rem; }
-
-        .ct-btns { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 6px; }
-
-        .btn-wa {
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: .8rem;
-            padding: 12px 20px;
-            background: var(--ink);
-            color: var(--paper);
-            text-decoration: none;
-            border-radius: var(--r);
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .btn-mail {
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: .8rem;
-            padding: 12px 20px;
-            border: 1px solid var(--line-strong);
-            color: var(--ink);
-            text-decoration: none;
-            border-radius: var(--r);
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .cf {
-            border: 1px solid var(--line);
-            border-radius: var(--r);
-            padding: 32px;
-            background: var(--panel);
-        }
-
-        .cf h3 {
-            font-family: 'Newsreader', serif;
-            font-weight: 600;
-            font-size: 1.15rem;
-            margin-bottom: 24px;
-        }
-
-        .frow { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-
-        .fgrp { margin-bottom: 16px; }
-
-        .fgrp label {
-            display: block;
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: .7rem;
-            text-transform: uppercase;
-            letter-spacing: .05em;
-            color: var(--ink-3);
-            margin-bottom: 7px;
-        }
-
-        .fgrp input, .fgrp select, .fgrp textarea {
-            width: 100%;
-            padding: 11px 13px;
-            border: 1px solid var(--line-strong);
-            border-radius: var(--r);
-            font-family: 'IBM Plex Sans', sans-serif;
-            font-size: .88rem;
-            background: var(--paper);
-            color: var(--ink);
-            outline: none;
-            transition: border-color .2s;
-        }
-
-        .fgrp input:focus, .fgrp select:focus, .fgrp textarea:focus { border-color: var(--ink); }
-
-        .fgrp textarea { height: 110px; resize: vertical; }
-
-        .bsub {
-            width: 100%;
-            padding: 13px;
-            background: var(--ink);
-            color: var(--paper);
-            border: none;
-            border-radius: var(--r);
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: .82rem;
-            cursor: pointer;
+        .photo-fallback {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
-            transition: background .2s;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #1F3BFF 0%, #FF6B35 55%, #E8A317 100%);
         }
-
-        .bsub:hover { background: var(--accent); }
-
-        @media (max-width: 860px) { .ct-grid { grid-template-columns: 1fr; } }
-        @media (max-width: 560px) { .frow { grid-template-columns: 1fr; } }
-
-        /* ── footer ── */
-        footer {
-            border-top: 1px solid var(--line);
-            padding: 48px 0 28px;
-            background: var(--paper-2);
-        }
-
-        .f-grid {
-            display: grid;
-            grid-template-columns: 1.6fr 1fr 1fr;
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-
-        .f-brand {
-            font-family: 'Newsreader', serif;
-            font-weight: 600;
-            font-size: 1.15rem;
-        }
-
-        .f-brand span { color: var(--accent); }
-
-        footer p { font-size: .84rem; color: var(--ink-3); margin-top: 10px; max-width: 260px; line-height: 1.7; }
-
-        .f-h {
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: .7rem;
-            text-transform: uppercase;
-            letter-spacing: .05em;
-            color: var(--ink-3);
-            margin-bottom: 14px;
-        }
-
-        footer ul { list-style: none; display: flex; flex-direction: column; gap: 9px; }
-
-        footer ul a { font-size: .84rem; color: var(--ink-2); text-decoration: none; }
-        footer ul a:hover { color: var(--accent); }
-
-        .f-bottom {
-            padding-top: 22px;
-            border-top: 1px solid var(--line);
-            font-size: .78rem;
-            color: var(--ink-3);
-            font-family: 'IBM Plex Mono', monospace;
-        }
-
-        @media (max-width: 860px) { .f-grid { grid-template-columns: 1fr 1fr; } }
-        @media (max-width: 560px) { .f-grid { grid-template-columns: 1fr; } }
-
-        /* ── toast ── */
-        .toast {
-            position: fixed;
-            bottom: 24px; right: 24px;
-            background: var(--ink);
-            color: var(--paper);
-            border-radius: var(--r);
-            padding: 13px 18px;
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: .8rem;
-            z-index: 9999;
-            transform: translateX(130%);
-            transition: transform .35s ease;
-        }
-
-        .toast.show { transform: none; }
     </style>
 </head>
 
-<body>
+<body class="bg-bg text-ink font-body antialiased">
 
-    <!-- ═══ NAV ═══ -->
-    <nav id="nav">
-        <div class="wrap">
-            <a href="#hero" class="brand">Woblesse<span>.</span></a>
-            <ul class="nav-links">
-                <li><a href="#about">À propos</a></li>
-                <li><a href="#skills">Stack</a></li>
-                <li><a href="#projects">Projets</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#timeline">Parcours</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <a href="#contact" class="nav-cta">Travaillons ensemble</a>
-            <button class="ham" id="ham" aria-label="Menu"><span></span><span></span><span></span></button>
+    <div class="fixed inset-0 noise z-0"></div>
+    <div class="fixed inset-0 glow z-0"></div>
+
+    <header class="z-20 sticky top-0 backdrop-blur-md bg-bg/80 border-b border-border">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="#top" class="flex items-center">
+                <img src="assets/logo.png" alt="KDG — WK Déo Gratias" class="h-7 md:h-8 w-auto">
+            </a>
+            <nav class="hidden md:flex items-center gap-8 text-sm text-muted">
+                <a href="#projets" class="hover:text-ink transition-colors">Projets</a>
+                <a href="#stack" class="hover:text-ink transition-colors">Stack</a>
+                <a href="#approche" class="hover:text-ink transition-colors">Approche</a>
+                <a href="#contact" class="hover:text-ink transition-colors">Contact</a>
+            </nav>
+            <a href="#contact"
+                class="text-xs md:text-sm font-medium px-4 py-2 rounded-full bg-ink text-white hover:bg-orange transition-colors">
+                Me contacter
+            </a>
         </div>
-    </nav>
-    <div class="mobm" id="mobm">
-        <a href="#about" onclick="closeMob()">À propos</a>
-        <a href="#skills" onclick="closeMob()">Stack</a>
-        <a href="#projects" onclick="closeMob()">Projets</a>
-        <a href="#services" onclick="closeMob()">Services</a>
-        <a href="#timeline" onclick="closeMob()">Parcours</a>
-        <a href="#contact" onclick="closeMob()">Contact</a>
-    </div>
+    </header>
 
-    <!-- ═══ HERO ═══ -->
-    <section id="hero">
-        <div class="wrap">
-            <div class="hero-grid">
-                <div>
-                    <div class="avail rv"><span class="dot"></span> Disponible pour missions freelance · Lomé, Togo</div>
-                    <h1 class="h1 rv d1">Koffi Déo Gratias.<br>Développeur web &amp; <em>bâtisseur de SaaS.</em></h1>
-                    <p class="hero-sub rv d2">Ingénieur en Génie Logiciel spécialisé dans les plateformes web, les
-                        solutions SaaS et les outils digitaux pour les entreprises africaines. Je transforme vos idées
-                        en produits concrets et durables.</p>
-                    <div class="btn-row rv d3">
-                        <a href="#projects" class="btn-p">Voir mes projets →</a>
-                        <a href="#contact" class="btn-s">Me contacter</a>
-                    </div>
-                </div>
-                <div class="hero-tag rv d3">Full stack — Laravel / Next.js — Lomé, TG</div>
-            </div>
-        </div>
-    </section>
+    <section id="top" class="relative z-10 max-w-6xl mx-auto px-6 pt-16 pb-24 md:pt-20 md:pb-32">
+        <div
+            class="grid gap-8 items-center [grid-template-areas:'title'_'image'_'desc'] md:grid-cols-[1.3fr_0.9fr] md:[grid-template-areas:'title_image'_'desc_image']">
+            <h1 class="[grid-area:title] font-display font-bold text-3xl md:text-4xl lg:text-5xl leading-[1.05]">
+                Je construis des produits numériques que les entreprises africaines <span class="text-orange">utilisent
+                    vraiment</span>.
+            </h1>
 
-    <!-- ═══ STATS ═══ -->
-    <div class="stats">
-        <div class="wrap">
-            <div class="stats-grid">
-                <div class="stat rv"><b>5+</b><span>Projets livrés</span></div>
-                <div class="stat rv d1"><b>10+</b><span>Technologies</span></div>
-                <div class="stat rv d2"><b>5</b><span>Services</span></div>
-                <div class="stat rv d3"><b>2+</b><span>Ans d'expérience</span></div>
-            </div>
-        </div>
-    </div>
-
-    <!-- ═══ ABOUT ═══ -->
-    <section id="about">
-        <div class="wrap">
-            <div class="about-grid">
-                <div class="rv">
-                    <div class="id-card">
-                        <div class="id-name">K. Déo Gratias Woblesse</div>
-                        <div class="id-role">Ingénieur Génie Logiciel · Créateur SaaS</div>
-                        <div class="id-tags">
-                            <span class="tag">Laravel</span>
-                            <span class="tag">Next.js</span>
-                            <span class="tag">SaaS</span>
-                            <span class="tag">Afrique</span>
-                            <span class="tag">Full Stack</span>
-                        </div>
-                        <div class="id-loc">Lomé, Togo — disponible remote &amp; local</div>
-                    </div>
-                </div>
-                <div class="about-text rv d2">
-                    <div class="eyebrow">À propos</div>
-                    <h2 class="h2">Construire des solutions qui comptent</h2>
-                    <p>Développeur passionné par la création de produits utiles et concrets, je travaille sur des
-                        plateformes web, logiciels métiers et solutions SaaS adaptés aux réalités africaines.</p>
-                    <p>Mon approche combine ingénierie rigoureuse et vision produit orientée impact. Chaque projet vise
-                        à simplifier la vie des entrepreneurs et des PME du continent.</p>
-                    <p>Objectif : construire des solutions digitales qui transforment les entreprises en Afrique et
-                        positionnent le continent à l'avant-garde de l'innovation.</p>
-                    <div class="about-points">
-                        <div class="point"><span class="n">01</span> Digitalisation des entreprises africaines</div>
-                        <div class="point"><span class="n">02</span> Produits SaaS scalables et maintenables</div>
-                        <div class="point"><span class="n">03</span> Solutions technologiques locales, impact global</div>
-                        <div class="point"><span class="n">04</span> UI/UX orienté business et expérience utilisateur</div>
+            <div class="[grid-area:image] justify-self-center md:justify-self-end w-56 sm:w-90 md:w-full md:max-w-xs">
+                <div class="photo-frame  aspect-4/5 w-full">
+                    <img src="assets/photo.png" alt="Photo de WK Déo Gratias" class="w-full h-full object-cover"
+                        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="photo-fallback" style="display:none;">
+                        <span class="font-display font-bold text-6xl text-white/90">DG</span>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- ═══ SKILLS ═══ -->
-    <section id="skills" class="alt">
-        <div class="wrap">
-            <div class="rv">
-                <div class="eyebrow">Stack technique</div>
-                <h2 class="h2">Technologies &amp; compétences</h2>
-                <p class="lede">Un stack moderne et éprouvé pour construire des produits robustes, rapides et
-                    maintenables.</p>
-            </div>
-            <div class="sk-grid">
-                <div class="sk-card rv"><div class="sk-head">Backend</div>
-                    <div class="sk-items"><span class="sk-item">Laravel</span><span class="sk-item">PHP</span><span
-                            class="sk-item">API REST</span><span class="sk-item">MySQL</span><span
-                            class="sk-item">Node.js</span></div>
-                </div>
-                <div class="sk-card rv d1"><div class="sk-head">Frontend</div>
-                    <div class="sk-items"><span class="sk-item">Next.js</span><span class="sk-item">React</span><span
-                            class="sk-item">TypeScript</span><span class="sk-item">JavaScript</span><span
-                            class="sk-item">Tailwind CSS</span><span class="sk-item">Blade</span></div>
-                </div>
-                <div class="sk-card rv d2"><div class="sk-head">DevOps &amp; outils</div>
-                    <div class="sk-items"><span class="sk-item">Git / GitHub</span><span
-                            class="sk-item">Déploiement</span><span class="sk-item">Sécurité web</span><span
-                            class="sk-item">CI/CD</span></div>
-                </div>
-                <div class="sk-card rv"><div class="sk-head">Architecture SaaS</div>
-                    <div class="sk-items"><span class="sk-item">Multi-tenancy</span><span class="sk-item">Auth &amp;
-                            rôles</span><span class="sk-item">Dashboards</span><span
-                            class="sk-item">Facturation</span><span class="sk-item">Reporting</span></div>
-                </div>
-                <div class="sk-card rv d1"><div class="sk-head">Conception produit</div>
-                    <div class="sk-items"><span class="sk-item">UI/UX design</span><span class="sk-item">Product
-                            thinking</span><span class="sk-item">Wireframing</span><span class="sk-item">Agile /
-                            Scrum</span></div>
-                </div>
-                <div class="sk-card rv d2"><div class="sk-head">Autres</div>
-                    <div class="sk-items"><span class="sk-item">SEO</span><span class="sk-item">Performance</span><span
-                            class="sk-item">Documentation</span><span class="sk-item">Code review</span></div>
-                </div>
-            </div>
-        </div>
-    </section>
+            <div class="[grid-area:desc]">
+                <p class="text-lg text-muted max-w-xl leading-relaxed">
+                    Ingénieur full-stack et créateur de SaaS basé à Lomé, au Togo. Je conçois des plateformes web,
+                    applications mobiles et solutions desktop qui répondent aux réalités des entreprises
+                    ouest-africaines tant en performance qu'en spécificité
+                </p>
 
-    <!-- ═══ PROJECTS ═══ -->
-    <section id="projects">
-        <div class="wrap">
-            <div class="rv">
-                <div class="eyebrow">Projets &amp; produits</div>
-                <h2 class="h2">Ce que j'ai construit</h2>
-                <p class="lede">Des solutions concrètes développées pour répondre aux besoins réels des entreprises
-                    africaines.</p>
-            </div>
-            <div style="margin-top:48px">
-
-                <div class="pj featured rv">
-                    <div class="pj-eyebrow">01 · Logiciel desktop · Gestion de stock &amp; POS</div>
-                    <div class="pj-title-row">
-                        <div class="pj-title">StockPilot</div>
-                        <a href="https://stockpilot-gtech.vercel.app" target="_blank" rel="noopener" class="pj-link">stockpilot-gtech.vercel.app ↗</a>
-                    </div>
-                    <p class="pj-desc">Application desktop de gestion de stock et point de vente conçue pour les
-                        petits commerçants ouest-africains. Fonctionne entièrement hors-ligne, avec une base de données
-                        locale et une architecture pensée pour la fiabilité au quotidien.</p>
-                    <div class="pj-cols">
-                        <div>
-                            <div class="pj-col-h">Solution développée</div>
-                            <div class="pj-list">
-                                <div>Gestion de stock et point de vente hors-ligne</div>
-                                <div>Export de l'inventaire au format Excel</div>
-                                <div>Génération de factures en PDF</div>
-                                <div>Système de licence local, sans dépendance serveur</div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="pj-col-h">Résultat client</div>
-                            <div class="pj-list">
-                                <div>Logiciel autonome installable sur Windows</div>
-                                <div>Suivi précis des stocks et des ventes</div>
-                                <div>Documents professionnels prêts à l'emploi</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="pj-foot">
-                        <div class="pj-tags"><span class="ptag">Tauri</span><span class="ptag">React</span><span
-                                class="ptag">Tailwind CSS</span><span class="ptag">SQLite</span></div>
-                    </div>
-                </div>
-
-                <div class="pj rv d1">
-                    <div class="pj-eyebrow">02 · E-commerce &amp; gestion de stock</div>
-                    <div class="pj-title-row">
-                        <div class="pj-title">Espoir Medical</div>
-                        <a href="https://espoir-medical.com" target="_blank" rel="noopener" class="pj-link">espoir-medical.com ↗</a>
-                    </div>
-                    <p class="pj-desc">Plateforme e-commerce conçue pour une entreprise de distribution de matériel
-                        médical. Combine une boutique en ligne avec un système de gestion de stock sur mesure — les
-                        produits enregistrés en back-office sont automatiquement synchronisés avec la vitrine
-                        publique.</p>
-                    <div class="pj-cols">
-                        <div>
-                            <div class="pj-col-h">Solution développée</div>
-                            <div class="pj-list">
-                                <div>Application de gestion de stock (admin)</div>
-                                <div>Synchronisation automatique boutique ↔ stock</div>
-                                <div>Canal de conversion direct via WhatsApp</div>
-                                <div>Gestion des produits, catégories &amp; disponibilités</div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="pj-col-h">Résultat client</div>
-                            <div class="pj-list">
-                                <div>Outil interne de gestion de stock</div>
-                                <div>Vitrine en ligne des produits</div>
-                                <div>Canal direct de conversion WhatsApp</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="pj-foot">
-                        <div class="pj-tags"><span class="ptag">Laravel</span><span class="ptag">MySQL</span><span
-                                class="ptag">Tailwind CSS</span><span class="ptag">WhatsApp API</span></div>
-                    </div>
-                </div>
-
-                <div class="pj rv d1">
-                    <div class="pj-eyebrow">03 · Restaurant · Menu digital</div>
-                    <div class="pj-title-row">
-                        <div class="pj-title">Mirabelle</div>
-                        <a href="https://mirabelle.vercel.app" target="_blank" rel="noopener" class="pj-link">mirabelle.vercel.app ↗</a>
-                    </div>
-                    <p class="pj-desc">Catalogue numérique de restaurant présentant les plats avec images et
-                        descriptions. Les clients accèdent au menu depuis leur téléphone via QR Code et passent
-                        commande directement par WhatsApp.</p>
-                    <div class="pj-col-h">Fonctionnalités</div>
-                    <div class="pj-list" style="margin-bottom:20px">
-                        <div>Menu numérique accessible via QR Code</div>
-                        <div>Catalogue moderne 100% mobile-first</div>
-                        <div>Système de commande via WhatsApp</div>
-                        <div>QR Code personnalisé fourni au restaurant</div>
-                    </div>
-                    <div class="pj-foot">
-                        <div class="pj-tags"><span class="ptag">Next.js</span><span class="ptag">Tailwind
-                                CSS</span><span class="ptag">Vercel</span><span class="ptag">WhatsApp</span></div>
-                    </div>
-                </div>
-
-                <div class="pj rv d2">
-                    <div class="pj-eyebrow">04 · Agri-tech · En conception</div>
-                    <div class="pj-title-row">
-                        <div class="pj-title">Anitech Africa</div>
-                        <a href="https://anitechafrica.com" target="_blank" rel="noopener" class="pj-link">anitechafrica.com ↗</a>
-                    </div>
-                    <p class="pj-desc">Plateforme visant à accompagner les acteurs agricoles dans la gestion de projets
-                        et l'analyse des risques. J'ai développé la vitrine officielle pour présenter la vision et les
-                        objectifs avant le lancement du MVP.</p>
-                    <div class="pj-col-h">Vitrine développée pour</div>
-                    <div class="pj-list" style="margin-bottom:20px">
-                        <div>Présenter l'initiative &amp; la vision</div>
-                        <div>Expliquer les fonctionnalités prévues</div>
-                        <div>Préparer le lancement du MVP</div>
-                    </div>
-                    <div class="pj-foot">
-                        <div class="pj-tags"><span class="ptag">Next.js</span><span class="ptag">Tailwind
-                                CSS</span><span class="ptag status">En conception</span></div>
-                    </div>
-                </div>
-
-                <div class="pj rv d3">
-                    <div class="pj-eyebrow">05 · Santé digitale · En développement</div>
-                    <div class="pj-title-row">
-                        <div class="pj-title">Oclinik</div>
-                        <a href="https://oclinik.com" target="_blank" rel="noopener" class="pj-link">oclinik.com ↗</a>
-                    </div>
-                    <p class="pj-desc">Plateforme numérique pour faciliter la gestion des cabinets médicaux et la prise
-                        de rendez-vous en ligne. J'ai conçu la vitrine présentant la solution et ses futures
-                        fonctionnalités.</p>
-                    <div class="pj-col-h">Fonctionnalités prévues</div>
-                    <div class="pj-list" style="margin-bottom:20px">
-                        <div>Prise de rendez-vous médicaux en ligne</div>
-                        <div>Gestion des consultations</div>
-                        <div>Gestion des patients pour établissements</div>
-                    </div>
-                    <div class="pj-foot">
-                        <div class="pj-tags"><span class="ptag">Next.js</span><span class="ptag">Tailwind
-                                CSS</span><span class="ptag status">En développement</span></div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- ═══ SERVICES ═══ -->
-    <section id="services" class="alt">
-        <div class="wrap">
-            <div class="rv">
-                <div class="eyebrow">Services</div>
-                <h2 class="h2">Ce que je peux faire pour vous</h2>
-                <p class="lede">Des prestations sur-mesure pour accompagner la transformation digitale de votre
-                    organisation.</p>
-            </div>
-            <div class="svc-grid">
-                <div class="svc rv"><div class="svc-n">01</div>
-                    <div class="svc-t">Sites web professionnels</div>
-                    <div class="svc-d">Sites vitrines, landing pages et sites corporate modernes, optimisés SEO et
-                        orientés conversion.</div>
-                </div>
-                <div class="svc rv d1"><div class="svc-n">02</div>
-                    <div class="svc-t">Plateformes web</div>
-                    <div class="svc-d">Applications web complexes avec back-office, gestion d'utilisateurs, tableaux de
-                        bord et APIs robustes.</div>
-                </div>
-                <div class="svc rv d2"><div class="svc-n">03</div>
-                    <div class="svc-t">Solutions SaaS</div>
-                    <div class="svc-d">Logiciels en mode SaaS avec multi-tenancy, abonnements, onboarding et
-                        fonctionnalités métiers avancées.</div>
-                </div>
-                <div class="svc rv"><div class="svc-n">04</div>
-                    <div class="svc-t">Refonte de sites web</div>
-                    <div class="svc-d">Modernisation de sites existants : nouveau design, amélioration des
-                        performances, refactorisation du code.</div>
-                </div>
-                <div class="svc rv d1"><div class="svc-n">05</div>
-                    <div class="svc-t">Conseil en transformation digitale</div>
-                    <div class="svc-d">Accompagnement stratégique pour choisir les bons outils et construire votre
-                        stack technique.</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ═══ TIMELINE ═══ -->
-    <section id="timeline">
-        <div class="wrap">
-            <div class="rv">
-                <div class="eyebrow">Parcours</div>
-                <h2 class="h2">Mon parcours</h2>
-            </div>
-            <div class="tl">
-                <div class="tl-item rv">
-                    <div class="tl-year">01</div>
-                    <div>
-                        <div class="tl-eyebrow">Formation · Génie Logiciel</div>
-                        <div class="tl-title">Ingénieur de Travaux en Génie Logiciel</div>
-                        <div class="tl-desc">Formation en ingénierie logicielle, acquisition des fondamentaux du
-                            développement, des architectures et des bonnes pratiques de conception.</div>
-                    </div>
-                </div>
-                <div class="tl-item rv d1">
-                    <div class="tl-year">02</div>
-                    <div>
-                        <div class="tl-eyebrow">Développement · Premiers projets</div>
-                        <div class="tl-title">Développeur Web Full Stack</div>
-                        <div class="tl-desc">Maîtrise du stack Laravel + React/Next.js. Développement de premiers
-                            projets clients et plateformes web pour des entreprises togolaises.</div>
-                    </div>
-                </div>
-                <div class="tl-item rv d2">
-                    <div class="tl-year">03</div>
-                    <div>
-                        <div class="tl-eyebrow">SaaS · Création produits</div>
-                        <div class="tl-title">Créateur de Solutions SaaS</div>
-                        <div class="tl-desc">Lancement de StockZoom et Surrdv, deux solutions SaaS pensées pour les PME
-                            africaines. Vision produit orientée impact.</div>
-                    </div>
-                </div>
-                <div class="tl-item rv d3">
-                    <div class="tl-year">04</div>
-                    <div>
-                        <div class="tl-eyebrow">Aujourd'hui · Vision Africa</div>
-                        <div class="tl-title">Entrepreneur Tech · Africa-First</div>
-                        <div class="tl-desc">Développement de plateformes immobilières et médicales. Mission :
-                            construire des outils qui accélèrent la transformation digitale en Afrique.</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ═══ CONTACT ═══ -->
-    <section id="contact" class="alt">
-        <div class="wrap">
-            <div class="rv">
-                <div class="eyebrow">Contact</div>
-                <h2 class="h2">Démarrons un projet ensemble</h2>
-                <p class="lede">Disponible pour projets web, développement SaaS, solutions digitales et missions
-                    freelance.</p>
-            </div>
-            <div class="ct-grid">
-                <div class="rv">
-                    <a href="mailto:kwoblesse@gmail.com" class="cc">
-                        <div>
-                            <div class="cc-lbl">Email</div>
-                            <div class="cc-val">kwoblesse@gmail.com</div>
-                        </div>
+                <div class="mt-10 flex flex-wrap gap-4">
+                    <a href="#projets"
+                        class="px-6 py-3 rounded-full bg-ink text-white font-medium hover:bg-orange transition-colors">
+                        Voir mes projets
                     </a>
-                    <a href="tel:+22899866863" class="cc">
-                        <div>
-                            <div class="cc-lbl">Téléphone 1</div>
-                            <div class="cc-val">+228 99 86 68 63</div>
-                        </div>
+                    <a href="#contact"
+                        class="px-6 py-3 rounded-full border border-border font-medium hover:border-orange hover:text-orange transition-colors">
+                        Démarrer un projet
                     </a>
-                    <a href="tel:+22891902824" class="cc">
-                        <div>
-                            <div class="cc-lbl">Téléphone 2</div>
-                            <div class="cc-val">+228 91 90 28 24</div>
-                        </div>
-                    </a>
-                    <div class="cc" style="cursor:default">
-                        <div>
-                            <div class="cc-lbl">Localisation</div>
-                            <div class="cc-val">Lomé, Togo · Remote disponible</div>
-                        </div>
-                    </div>
-                    <div class="ct-btns">
-                        <a href="https://wa.me/22899866863" target="_blank" class="btn-wa">WhatsApp →</a>
-                        <a href="mailto:kwoblesse@gmail.com" class="btn-mail">Email</a>
-                    </div>
-                </div>
-
-                <div class="cf rv d2">
-                    <h3>Envoyez un message</h3>
-                    <div class="frow">
-                        <div class="fgrp"><label>Prénom</label><input type="text" placeholder="Jean" id="fp" /></div>
-                        <div class="fgrp"><label>Nom</label><input type="text" placeholder="Dupont" id="fn" /></div>
-                    </div>
-                    <div class="fgrp"><label>Email</label><input type="email" placeholder="votre@email.com" id="fe" /></div>
-                    <div class="fgrp">
-                        <label>Sujet</label>
-                        <select id="fs">
-                            <option value="">Sélectionner un sujet</option>
-                            <option>Création de site web</option>
-                            <option>Développement SaaS</option>
-                            <option>Plateforme web</option>
-                            <option>Refonte de site</option>
-                            <option>Conseil digital</option>
-                            <option>Autre</option>
-                        </select>
-                    </div>
-                    <div class="fgrp"><label>Message</label><textarea placeholder="Décrivez votre projet..." id="fm"></textarea></div>
-                    <button class="bsub" onclick="sendMsg()">Envoyer le message →</button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ═══ FOOTER ═══ -->
-    <footer>
-        <div class="wrap">
-            <div class="f-grid">
-                <div>
-                    <div class="f-brand">Woblesse<span>.</span></div>
-                    <p>Ingénieur en Génie Logiciel et créateur de solutions SaaS pour les entreprises africaines. Basé
-                        à Lomé, Togo.</p>
+    <section id="stack" class="relative z-10 border-y border-border bg-surface py-6 overflow-hidden">
+        <div class="flex whitespace-nowrap marquee-track w-max">
+            <div class="flex items-center gap-10 pr-10">
+                <span class="mono-tag text-sm text-muted">LARAVEL</span><span class="text-orange">✦</span>
+                <span class="mono-tag text-sm text-muted">NEXT.JS</span><span class="text-blue">✦</span>
+                <span class="mono-tag text-sm text-muted">REACT</span><span class="text-gold">✦</span>
+                <span class="mono-tag text-sm text-muted">TYPESCRIPT</span><span class="text-orange">✦</span>
+                <span class="mono-tag text-sm text-muted">TAILWIND CSS</span><span class="text-blue">✦</span>
+                <span class="mono-tag text-sm text-muted">TAURI / RUST</span><span class="text-gold">✦</span>
+                <span class="mono-tag text-sm text-muted">SQLITE</span><span class="text-orange">✦</span>
+                <span class="mono-tag text-sm text-muted">PHP</span><span class="text-blue">✦</span>
+            </div>
+            <div class="flex items-center gap-10 pr-10" aria-hidden="true">
+                <span class="mono-tag text-sm text-muted">LARAVEL</span><span class="text-orange">✦</span>
+                <span class="mono-tag text-sm text-muted">NEXT.JS</span><span class="text-blue">✦</span>
+                <span class="mono-tag text-sm text-muted">REACT</span><span class="text-gold">✦</span>
+                <span class="mono-tag text-sm text-muted">TYPESCRIPT</span><span class="text-orange">✦</span>
+                <span class="mono-tag text-sm text-muted">TAILWIND CSS</span><span class="text-blue">✦</span>
+                <span class="mono-tag text-sm text-muted">TAURI / RUST</span><span class="text-gold">✦</span>
+                <span class="mono-tag text-sm text-muted">SQLITE</span><span class="text-orange">✦</span>
+                <span class="mono-tag text-sm text-muted">PHP</span><span class="text-blue">✦</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="projets" class="relative z-10 max-w-6xl mx-auto px-6 py-24 md:py-32">
+
+        <!-- Section header -->
+        <div class="max-w-3xl mb-14 md:mb-16">
+            <p class="eyebrow text-xs text-orange mb-3">Projets sélectionnés</p>
+
+            <h2 class="font-display font-bold text-3xl md:text-5xl leading-tight">
+                Je ne me contente pas de coder.
+                <span class="text-orange">Je transforme des problèmes métier en produits utilisables.</span>
+            </h2>
+
+            <p class="mt-6 text-muted text-base md:text-lg leading-relaxed max-w-2xl">
+                Voici quelques produits et plateformes que j'ai conçus ou développés,
+                de la gestion de stock aux outils métier, en passant par le e-commerce
+                et les plateformes numériques.
+            </p>
+        </div>
+
+
+        <!-- Projects grid -->
+        <div class="grid md:grid-cols-2 gap-6">
+
+
+            <!-- STOCKPILOT -->
+            <article class="group card-hover rounded-2xl border border-border bg-surface overflow-hidden">
+
+                <!-- Screenshot -->
+                <div class="relative aspect-16/10 bg-surface2 overflow-hidden">
+                    <img src="assets/stockpilot.png" alt="Interface de StockPilot"
+                        class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
+                        loading="lazy">
+
+                    <!-- Overlay -->
+                    <div
+                        class="absolute inset-0 bg-linear-to-t from-ink/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    </div>
+
+                    <span
+                        class="absolute top-4 left-4 text-xs font-medium px-3 py-1.5 rounded-full bg-white/95 text-orange shadow-sm">
+                        Desktop · POS
+                    </span>
+
+                    <span
+                        class="absolute top-4 right-4 text-xs font-medium px-3 py-1.5 rounded-full bg-ink/90 text-white">
+                        Produit
+                    </span>
                 </div>
-                <div>
-                    <div class="f-h">Navigation</div>
-                    <ul>
-                        <li><a href="#about">À propos</a></li>
-                        <li><a href="#skills">Stack</a></li>
-                        <li><a href="#projects">Projets</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#timeline">Parcours</a></li>
-                    </ul>
+
+                <!-- Content -->
+                <div class="p-7 md:p-8">
+
+                    <div class="flex items-start justify-between gap-4 mb-3">
+                        <div>
+                            <h3 class="font-display font-semibold text-2xl md:text-3xl">
+                                StockPilot
+                            </h3>
+
+                            <p class="text-xs text-muted mt-1 mono-tag">
+                                Tauri · Rust · SQLite
+                            </p>
+                        </div>
+
+                        <span class="text-orange text-xl">↗</span>
+                    </div>
+
+                    <p class="text-muted leading-relaxed">
+                        Un outil de caisse et de gestion de stock conçu pour fonctionner
+                        même lorsque la connexion internet n'est pas fiable.
+                    </p>
+
+                    <div class="mt-6 pt-5 border-t border-border">
+                        <p class="text-xs eyebrow text-muted mb-2">Le problème</p>
+
+                        <p class="text-sm leading-relaxed">
+                            Permettre aux commerçants de vendre, suivre leurs stocks
+                            et consulter leurs données sans dépendre d'une connexion internet.
+                        </p>
+                    </div>
+
                 </div>
-                <div>
-                    <div class="f-h">Contact</div>
-                    <ul>
-                        <li><a href="mailto:kwoblesse@gmail.com">kwoblesse@gmail.com</a></li>
-                        <li><a href="tel:+22899866863">+228 99 86 68 63</a></li>
-                        <li><a href="tel:+22891902824">+228 91 90 28 24</a></li>
-                        <li><a href="https://wa.me/22899866863" target="_blank">WhatsApp</a></li>
-                    </ul>
+            </article>
+
+
+            <!-- REPAIR MANAGER -->
+            <article class="group card-hover rounded-2xl border border-border bg-surface overflow-hidden">
+
+                <div class="relative aspect-16/10 bg-surface2 overflow-hidden">
+                    <img src="assets/repair-manager.png" alt="Interface de Repair Manager"
+                        class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
+                        loading="lazy">
+
+                    <div
+                        class="absolute inset-0 bg-linear-to-t from-ink/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    </div>
+
+                    <span
+                        class="absolute top-4 left-4 text-xs font-medium px-3 py-1.5 rounded-full bg-white/95 text-blue shadow-sm">
+                        Desktop · CRM
+                    </span>
+
+                    <span
+                        class="absolute top-4 right-4 text-xs font-medium px-3 py-1.5 rounded-full bg-ink/90 text-white">
+                        Terminé
+                    </span>
+                </div>
+
+                <div class="p-7 md:p-8">
+
+                    <div class="flex items-start justify-between gap-4 mb-3">
+                        <div>
+                            <h3 class="font-display font-semibold text-2xl md:text-3xl">
+                                Repair Manager
+                            </h3>
+
+                            <p class="text-xs text-muted mt-1 mono-tag">
+                                Tauri v2 · SQLite
+                            </p>
+                        </div>
+
+                        <span class="text-blue text-xl">↗</span>
+                    </div>
+
+                    <p class="text-muted leading-relaxed">
+                        Un logiciel de suivi pour ateliers de réparation, avec gestion
+                        des opérations, génération de documents et interface multilingue.
+                    </p>
+
+                    <div class="mt-6 pt-5 border-t border-border">
+                        <p class="text-xs eyebrow text-muted mb-2">Ce que le produit gère</p>
+
+                        <p class="text-sm leading-relaxed">
+                            Modules CRUD, migrations SQLite, génération de PDF,
+                            dialogues natifs et gestion multilingue.
+                        </p>
+                    </div>
+
+                </div>
+            </article>
+
+
+            <!-- ESPOIR MEDICAL -->
+            <article class="group card-hover rounded-2xl border border-border bg-surface overflow-hidden">
+
+                <div class="relative aspect-16/10 bg-surface2 overflow-hidden">
+                    <img src="assets/espoir-medical.png" alt="Plateforme e-commerce espoir-medical.com"
+                        class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
+                        loading="lazy">
+
+                    <div
+                        class="absolute inset-0 bg-linear-to-t from-ink/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    </div>
+
+                    <span
+                        class="absolute top-4 left-4 text-xs font-medium px-3 py-1.5 rounded-full bg-white/95 text-gold shadow-sm">
+                        Web · E-commerce
+                    </span>
+
+                    <span
+                        class="absolute top-4 right-4 text-xs font-medium px-3 py-1.5 rounded-full bg-ink/90 text-white">
+                        Livré
+                    </span>
+                </div>
+
+                <div class="p-7 md:p-8">
+
+                    <div class="flex items-start justify-between gap-4 mb-3">
+                        <div>
+                            <h3 class="font-display font-semibold text-2xl md:text-3xl">
+                                espoir-medical.com
+                            </h3>
+
+                            <p class="text-xs text-muted mt-1 mono-tag">
+                                Laravel · E-commerce
+                            </p>
+                        </div>
+
+                        <span class="text-gold text-xl">↗</span>
+                    </div>
+
+                    <p class="text-muted leading-relaxed">
+                        Une plateforme e-commerce dédiée au matériel médical,
+                        avec commandes, inventaire et suivi centralisés.
+                    </p>
+
+                    <a href="https://espoir-medical.com" target="_blank" rel="noopener"
+                        class="inline-flex items-center gap-2 mt-6 text-sm font-medium text-orange hover:text-gold transition-colors">
+                        Voir le projet
+                        <span>↗</span>
+                    </a>
+
+                </div>
+            </article>
+
+
+            <!-- MIRABELLE -->
+            <article class="group card-hover rounded-2xl border border-border bg-surface overflow-hidden">
+
+                <div class="relative aspect-16/10 bg-surface2 overflow-hidden">
+                    <img src="assets/mirabelle.png" alt="Menu digital Mirabelle"
+                        class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
+                        loading="lazy">
+
+                    <div
+                        class="absolute inset-0 bg-linear-to-t from-ink/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    </div>
+
+                    <span
+                        class="absolute top-4 left-4 text-xs font-medium px-3 py-1.5 rounded-full bg-white/95 text-orange shadow-sm">
+                        Web · Restauration
+                    </span>
+
+                    <span
+                        class="absolute top-4 right-4 text-xs font-medium px-3 py-1.5 rounded-full bg-ink/90 text-white">
+                        Livré
+                    </span>
+                </div>
+
+                <div class="p-7 md:p-8">
+
+                    <div class="flex items-start justify-between gap-4 mb-3">
+                        <div>
+                            <h3 class="font-display font-semibold text-2xl md:text-3xl">
+                                Mirabelle
+                            </h3>
+
+                            <p class="text-xs text-muted mt-1 mono-tag">
+                                Next.js · QR Code · WhatsApp
+                            </p>
+                        </div>
+
+                        <span class="text-orange text-xl">↗</span>
+                    </div>
+
+                    <p class="text-muted leading-relaxed">
+                        Un menu digital permettant aux clients de consulter les produits,
+                        commander via QR code et poursuivre l'échange sur WhatsApp.
+                    </p>
+
+                    <a href="https://mirabelle.vercel.app" target="_blank" rel="noopener"
+                        class="inline-flex items-center gap-2 mt-6 text-sm font-medium text-orange hover:text-gold transition-colors">
+                        Voir le projet
+                        <span>↗</span>
+                    </a>
+
+                </div>
+            </article>
+
+
+            <!-- OCLINIK -->
+            <article class="group card-hover rounded-2xl border border-border bg-surface overflow-hidden">
+
+                <div class="relative aspect-16/10 bg-surface2 overflow-hidden">
+
+                    <img src="assets/oclinik.png" alt="Aperçu de la plateforme Oclinik pour la gestion d'une clinique"
+                        class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
+                        loading="lazy">
+
+                    <div
+                        class="absolute inset-0 bg-linear-to-t from-ink/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    </div>
+
+                    <span
+                        class="absolute top-4 left-4 text-xs font-medium px-3 py-1.5 rounded-full bg-white/95 text-blue shadow-sm">
+                        Web · Santé
+                    </span>
+
+                    <span
+                        class="absolute top-4 right-4 text-xs font-medium px-3 py-1.5 rounded-full bg-ink/90 text-white">
+                        Démo Dispo
+                    </span>
+
+                </div>
+
+
+                <div class="p-7 md:p-8">
+
+                    <div class="flex items-start justify-between gap-4 mb-3">
+
+                        <div>
+                            <h3 class="font-display font-semibold text-2xl md:text-3xl">
+                                Oclinik
+                            </h3>
+
+                            <p class="text-xs text-muted mt-1 mono-tag">
+                                SaaS · Multi-clinique
+                            </p>
+                        </div>
+
+                        <span class="text-blue text-xl">↗</span>
+
+                    </div>
+
+
+                    <p class="text-muted leading-relaxed">
+                        Une solution numérique conçue pour permettre à chaque clinique
+                        de disposer de sa propre plateforme en ligne, avec son identité,
+                        ses médecins, ses horaires et ses comptes utilisateurs.
+                    </p>
+
+
+                    <div class="mt-6 pt-5 border-t border-border">
+
+                        <p class="text-xs eyebrow text-muted mb-2">
+                            Ce que le produit permet
+                        </p>
+
+                        <p class="text-sm leading-relaxed">
+                            Chaque clinique peut être déployée avec son propre nom de domaine,
+                            gérer ses médecins et leurs horaires, ainsi que les différents
+                            comptes utilisateurs de son établissement.
+                        </p>
+
+                    </div>
+
+
+                    <a href="https://demo.oclinik.com" target="_blank" rel="noopener"
+                        class="inline-flex items-center gap-2 mt-6 text-sm font-medium text-orange hover:text-gold transition-colors">
+                        Voir la démo
+                        <span>↗</span>
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- ANITECHAFRICA -->
+            <article class="group card-hover rounded-2xl border border-border bg-surface overflow-hidden">
+
+                <div class="relative aspect-16/10 bg-surface2 overflow-hidden">
+
+                    <img src="assets/anitechafrica.png" alt="Aperçu de la plateforme AnitechAfrica"
+                        class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
+                        loading="lazy">
+
+                    <div
+                        class="absolute inset-0 bg-linear-to-t from-ink/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    </div>
+
+                    <span
+                        class="absolute top-4 left-4 text-xs font-medium px-3 py-1.5 rounded-full bg-white/95 text-gold shadow-sm">
+                        Web · Agri-tech
+                    </span>
+
+                    <span
+                        class="absolute top-4 right-4 text-xs font-medium px-3 py-1.5 rounded-full bg-ink/90 text-white">
+                        En cours
+                    </span>
+                </div>
+
+                <div class="p-7 md:p-8">
+
+                    <div class="flex items-start justify-between gap-4 mb-3">
+                        <div>
+                            <h3 class="font-display font-semibold text-2xl md:text-3xl">
+                                AnitechAfrica
+                            </h3>
+
+                            <p class="text-xs text-muted mt-1 mono-tag">
+                                Agri-tech · Plateforme web
+                            </p>
+                        </div>
+
+                        <span class="text-gold text-xl">↗</span>
+                    </div>
+
+                    <p class="text-muted leading-relaxed">
+                        Une plateforme agri-tech actuellement en construction
+                        pour outiller les acteurs du secteur agricole.
+                    </p>
+
+                    <div class="mt-6 pt-5 border-t border-border">
+                        <p class="text-xs eyebrow text-muted mb-2">Objectif</p>
+
+                        <p class="text-sm leading-relaxed">
+                            Mettre le numérique au service des besoins concrets
+                            des acteurs du secteur agricole.
+                        </p>
+                    </div>
+
+                    <a href="https://anitechafrica.vercel.app/" target="_blank" rel="noopener"
+                        class="inline-flex items-center gap-2 mt-6 text-sm font-medium text-orange hover:text-gold transition-colors">
+                        Voir le projet
+                        <span>↗</span>
+                    </a>
+                </div>
+            </article>
+
+        </div>
+
+
+        <!-- Commercial CTA -->
+        <div
+            class="mt-14 md:mt-20 rounded-2xl border border-border bg-ink text-white p-8 md:p-10 relative overflow-hidden">
+
+            <div class="absolute -right-20 -top-20 w-64 h-64 rounded-full bg-orange/20 blur-3xl"></div>
+            <div class="absolute -left-20 -bottom-20 w-64 h-64 rounded-full bg-blue/20 blur-3xl"></div>
+
+            <div class="relative z-10 flex flex-col md:flex-row md:items-center md:justify-between gap-8">
+
+                <div class="max-w-2xl">
+
+                    <p class="eyebrow text-xs text-orange mb-3">
+                        Votre projet
+                    </p>
+
+                    <h3 class="font-display font-bold text-2xl md:text-3xl leading-tight">
+                        Votre entreprise a un problème que le numérique pourrait résoudre ?
+                    </h3>
+
+                    <p class="mt-4 text-white/65 leading-relaxed">
+                        Parlons du problème avant de parler de technologie.
+                        Je peux vous aider à définir une solution adaptée à votre activité,
+                        votre budget et votre réalité terrain.
+                    </p>
+
+                </div>
+
+                <a href="#contact"
+                    class="shrink-0 inline-flex items-center justify-center gap-3 px-6 py-3 rounded-full bg-orange text-white font-medium hover:bg-white hover:text-ink transition-colors">
+                    Discutons de votre projet
+                    <span>→</span>
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="relative z-10 max-w-6xl mx-auto px-6 pb-24 md:pb-32">
+        <div class="grid md:grid-cols-5 gap-10 items-center">
+            <div class="md:col-span-2">
+                <p class="eyebrow text-xs text-blue mb-3">Le ticket</p>
+                <h2 class="font-display font-bold text-3xl md:text-4xl mb-5">
+                    Un reçu, comme dans StockPilot.
+                </h2>
+                <p class="text-muted leading-relaxed">
+                    Chaque ligne de ce ticket est un produit réellement construit et livré, pas un exercice de style.
+                </p>
+            </div>
+
+            <div class="md:col-span-3">
+                <div class="receipt max-w-md mx-auto shadow-xl">
+                    <p class="mono-tag text-center text-xs tracking-widest mb-1">WK DÉO GRATIAS — DEV STUDIO</p>
+                    <p class="mono-tag text-center text-[10px] text-black/50 mb-6">LOMÉ, TOGO</p>
+
+                    <div class="space-y-3 mono-tag text-sm">
+                        <div class="flex justify-between dotted-line pb-2">
+                            <span>1x StockPilot (POS)</span>
+                            <span>LIVRÉ</span>
+                        </div>
+                        <div class="flex justify-between dotted-line pb-2">
+                            <span>1x Repair Manager</span>
+                            <span>LIVRÉ</span>
+                        </div>
+                        <div class="flex justify-between dotted-line pb-2">
+                            <span>1x espoir-medical.com</span>
+                            <span>LIVRÉ</span>
+                        </div>
+                        <div class="flex justify-between dotted-line pb-2">
+                            <span>1x Mirabelle</span>
+                            <span>LIVRÉ</span>
+                        </div>
+                        <div class="flex justify-between dotted-line pb-2">
+                            <span>1x Oclinik</span>
+                            <span>DÉMO DISPO</span>
+                        </div>
+                        <div class="flex justify-between pb-2">
+                            <span>1x AnitechAfrica</span>
+                            <span>EN COURS</span>
+                        </div>
+                    </div>
+
+                    <div
+                        class="border-t-2 border-dashed border-black/20 mt-6 pt-4 mono-tag text-sm flex justify-between font-bold">
+                        <span>TOTAL PRODUITS</span>
+                        <span>06</span>
+                    </div>
+                    <p class="mono-tag text-center text-[10px] text-black/40 mt-6">MERCI DE VOTRE CONFIANCE — <a
+                            href="#contact" class="text-orange">À BIENTÔT</a> </p>
                 </div>
             </div>
-            <div class="f-bottom">© 2026 K. Déo Gratias Woblesse — Tous droits réservés</div>
+        </div>
+    </section>
+
+    <section id="approche" class="relative z-10 border-t border-border bg-surface">
+        <div class="max-w-6xl mx-auto px-6 py-24 md:py-32">
+            <p class="eyebrow text-xs text-gold mb-3">Approche</p>
+            <h2 class="font-display font-bold text-3xl md:text-5xl max-w-3xl mb-16">
+                Un seul interlocuteur, de l'architecture jusqu'au pixel.
+            </h2>
+
+            <div class="grid md:grid-cols-3 gap-10">
+                <div>
+                    <p class="font-display text-4xl text-orange mb-4">01</p>
+                    <h3 class="font-semibold text-lg mb-2">Cadrage &amp; architecture</h3>
+                    <p class="text-muted leading-relaxed text-sm">
+                        On part de votre réalité terrain : connexion, usage mobile, budget.. pour choisir la stack la
+                        plus adaptée, pas la plus à la mode.
+                    </p>
+                </div>
+                <div>
+                    <p class="font-display text-4xl text-blue mb-4">02</p>
+                    <h3 class="font-semibold text-lg mb-2">Design &amp; développement</h3>
+                    <p class="text-muted leading-relaxed text-sm">
+                        Interface et backend construits en parallèle, avec des points d'étape réguliers; vous voyez le
+                        produit avancer, pas seulement le devis.
+                    </p>
+                </div>
+                <div>
+                    <p class="font-display text-4xl text-gold mb-4">03</p>
+                    <h3 class="font-semibold text-lg mb-2">Livraison &amp; suite</h3>
+                    <p class="text-muted leading-relaxed text-sm">
+                        Mise en production, documentation claire, et disponibilité pour les évolutions une fois le
+                        produit entre les mains de vos équipes.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="relative z-10 max-w-6xl mx-auto px-6 py-24 md:py-32">
+        <p class="eyebrow text-xs text-orange mb-3">Contact</p>
+        <h2 class="font-display font-bold text-3xl md:text-5xl max-w-2xl mb-4">
+            Un projet en tête ? Parlons-en.
+        </h2>
+        <p class="text-muted max-w-xl mb-16">
+            Le plus rapide reste l'appel ou WhatsApp. Le formulaire fonctionne aussi si vous préférez tout écrire d'un
+            coup.
+        </p>
+
+        <div class="grid md:grid-cols-5 gap-6 items-start">
+
+            <div class="md:col-span-2 flex flex-col gap-4">
+                <a href="tel:+22891902824"
+                    class="card-hover rounded-2xl bg-ink text-white p-8 block relative overflow-hidden">
+                    <div class="glow absolute inset-0 opacity-70"></div>
+                    <div class="relative">
+                        <div class="flex items-center gap-2 mb-6">
+                            <span class="w-2 h-2 rounded-full bg-orange"></span>
+                            <p class="eyebrow text-xs text-white/60">Ligne directe</p>
+                        </div>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                            stroke-linecap="round" stroke-linejoin="round" class="w-7 h-7 text-orange mb-4">
+                            <path
+                                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+                        </svg>
+                        <p class="font-display font-bold text-2xl md:text-3xl mb-1 mono-tag">+228 91 90 28 24</p>
+                        <p class="text-white/60 text-sm">Appel ou WhatsApp — je décroche moi-même.</p>
+                    </div>
+                </a>
+
+                <a href="mailto:gwoblesse@gmail.com"
+                    class="card-hover rounded-2xl border border-border bg-surface p-6 flex items-center gap-4">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                        stroke-linejoin="round" class="w-5 h-5 text-blue shrink-0">
+                        <rect x="3" y="5" width="18" height="14" rx="2" />
+                        <path d="M3 7l9 6 9-6" />
+                    </svg>
+                    <div class="min-w-0">
+                        <h3 class="font-semibold text-sm mb-0.5">Email</h3>
+                        <p class="text-muted text-xs truncate">gwoblesse@gmail.com</p>
+                    </div>
+                </a>
+
+                <div class="rounded-2xl border border-border bg-surface p-6">
+                    <div class="flex items-center gap-2 mb-3">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                            stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-gold shrink-0">
+                            <path d="M7 17L17 7" />
+                            <path d="M8 7h9v9" />
+                        </svg>
+                        <h3 class="font-semibold text-sm">Réseaux</h3>
+                    </div>
+                    <div class="flex gap-4 text-xs text-muted">
+                        <a href="https://github.com/deogratias228" target="_blank"
+                            class="hover:text-ink transition-colors">GitHub</a>
+                        <a href="https://www.linkedin.com/in/wkdg/" target="_blank"
+                            class="hover:text-ink transition-colors">LinkedIn</a>
+                        <a href="https://web.facebook.com/people/WK-Deo-Gratias/61575143690432/"
+                            class="hover:text-ink transition-colors">Facebook</a>
+                    </div>
+                </div>
+            </div>
+
+            <form id="contactForm"
+                class="md:col-span-3 bg-surface border border-border rounded-2xl p-8 md:p-10 grid gap-5">
+
+                <div class="flex items-start justify-between gap-4 mb-1">
+                    <div>
+                        <h3 class="font-display font-semibold text-xl">
+                            Décrivez votre projet
+                        </h3>
+
+                        <p class="text-muted text-sm mt-1">
+                            Quelques infos suffisent pour démarrer.
+                        </p>
+                    </div>
+
+                    <span
+                        class="mono-tag text-[10px] text-gold border border-gold/30 rounded-full px-3 py-1 shrink-0 whitespace-nowrap">
+                        RÉPONSE &lt; 24H
+                    </span>
+                </div>
+
+
+                <div class="grid md:grid-cols-2 gap-5">
+
+                    <div>
+                        <label for="cf-name" class="text-xs text-muted mb-2 block font-medium">
+                            NOM
+                        </label>
+
+                        <input type="text" id="cf-name" name="name" required autocomplete="name" placeholder="Votre nom"
+                            class="w-full bg-surface2 border border-border rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-orange transition-colors">
+                    </div>
+
+
+                    <div>
+                        <label for="cf-phone" class="text-xs text-muted mb-2 block font-medium">
+                            TÉLÉPHONE / WHATSAPP
+                        </label>
+
+                        <input type="tel" id="cf-phone" name="phone" required autocomplete="tel" placeholder="+228 ..."
+                            class="w-full bg-surface2 border border-border rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-orange transition-colors">
+                    </div>
+
+                </div>
+
+
+                <div>
+                    <label for="cf-email" class="text-xs text-muted mb-2 block font-medium">
+                        EMAIL
+                    </label>
+
+                    <input type="email" id="cf-email" name="email" required autocomplete="email"
+                        placeholder="vous@entreprise.com"
+                        class="w-full bg-surface2 border border-border rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-orange transition-colors">
+                </div>
+
+
+                <div>
+                    <label for="cf-type" class="text-xs text-muted mb-2 block font-medium">
+                        TYPE DE PROJET
+                    </label>
+
+                    <select id="cf-type" name="object" required
+                        class="w-full bg-surface2 border border-border rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-orange transition-colors">
+                        <option value="Site web / vitrine">
+                            Site web / vitrine
+                        </option>
+
+                        <option value="Application web / SaaS">
+                            Application web / SaaS
+                        </option>
+
+                        <option value="Application desktop">
+                            Application desktop
+                        </option>
+
+                        <option value="Autre / je ne sais pas encore">
+                            Autre / je ne sais pas encore
+                        </option>
+                    </select>
+                </div>
+
+
+                <div>
+                    <label for="cf-message" class="text-xs text-muted mb-2 block font-medium">
+                        MESSAGE
+                    </label>
+
+                    <textarea id="cf-message" name="message" rows="4" required
+                        placeholder="Contexte, objectif, où vous en êtes."
+                        class="w-full bg-surface2 border border-border rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-orange transition-colors"></textarea>
+                </div>
+
+
+                <!-- Message de retour -->
+                <div id="contactStatus" class="hidden text-sm rounded-lg px-4 py-3" role="status" aria-live="polite">
+                </div>
+
+
+                <div class="flex items-center justify-between gap-4 flex-wrap">
+
+                    <button type="submit" id="contactSubmit"
+                        class="px-6 py-3 rounded-full bg-orange text-white font-medium hover:bg-gold transition-colors disabled:opacity-60 disabled:cursor-not-allowed">
+                        Envoyer le message
+                    </button>
+
+                    <p class="text-muted text-xs">
+                        Aucun engagement, juste un premier échange.
+                    </p>
+
+                </div>
+
+            </form>
+
+        </div>
+    </section>
+
+
+    <footer class="relative z-10 border-t border-border py-10">
+        <div
+            class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted">
+            <p>© <span id="year"></span> WK Déo Gratias</p>
+            <p class="text-xs">Conçu &amp; codé à Lomé, Togo</p>
         </div>
     </footer>
 
-    <div class="toast" id="toast"><span id="toast-t">Message envoyé !</span></div>
-
     <script>
-        const nav = document.getElementById('nav');
-        window.addEventListener('scroll', () => nav.classList.toggle('sc', scrollY > 10), { passive: true });
+        document.getElementById('year').textContent = new Date().getFullYear();
 
-        const ham = document.getElementById('ham'), mobm = document.getElementById('mobm');
-        ham.addEventListener('click', () => { mobm.style.display = mobm.style.display === 'flex' ? 'none' : 'flex'; });
-        function closeMob() { mobm.style.display = 'none'; }
+        const contactForm = document.getElementById('contactForm');
+        const contactSubmit = document.getElementById('contactSubmit');
+        const contactStatus = document.getElementById('contactStatus');
 
-        const rvEls = document.querySelectorAll('.rv');
-        const obs = new IntersectionObserver(entries => {
-            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in') });
-        }, { threshold: .08, rootMargin: '0px 0px -32px 0px' });
-        rvEls.forEach(el => obs.observe(el));
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
 
-        const secs = document.querySelectorAll('section[id]'), navAs = document.querySelectorAll('.nav-links a');
-        window.addEventListener('scroll', () => {
-            let cur = '';
-            secs.forEach(s => { if (scrollY >= s.offsetTop - 90) cur = s.id });
-            navAs.forEach(a => a.classList.toggle('act', a.getAttribute('href') === '#' + cur));
-        }, { passive: true });
+            const data = {
+                name: document.getElementById('cf-name').value.trim(),
+                phone: document.getElementById('cf-phone').value.trim(),
+                email: document.getElementById('cf-email').value.trim(),
+                object: document.getElementById('cf-type').value,
+                message: document.getElementById('cf-message').value.trim(),
+            };
 
-        function toast(msg) {
-            const t = document.getElementById('toast');
-            document.getElementById('toast-t').textContent = msg;
-            t.classList.add('show');
-            setTimeout(() => t.classList.remove('show'), 3200);
-        }
+            contactSubmit.disabled = true;
+            contactSubmit.textContent = 'Envoi en cours...';
 
-        function sendMsg() {
-            const p = document.getElementById('fp').value, e = document.getElementById('fe').value, m = document.getElementById('fm').value;
-            if (!p || !e || !m) { toast('Veuillez remplir tous les champs requis.'); return }
-            const s = document.getElementById('fs').value || 'Message depuis portfolio';
-            window.location.href = `mailto:kwoblesse@gmail.com?subject=${encodeURIComponent(s)}&body=${encodeURIComponent('Bonjour Koffi,\n\nPrénom: ' + p + '\nEmail: ' + e + '\n\nMessage:\n' + m)}`;
-            toast('Redirection vers votre client mail...');
-        }
+            contactStatus.className =
+                'text-sm rounded-lg px-4 py-3 bg-blue/10 text-blue';
+
+            contactStatus.textContent = 'Envoi de votre message...';
+
+            try {
+                const response = await fetch(
+                    'http://127.0.0.1:8000/api/messages/gratias/test',
+                    {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Accept': 'application/json',
+                        },
+                        body: JSON.stringify(data),
+                    }
+                );
+
+                const result = await response.json();
+
+                if (!response.ok) {
+                    throw new Error(
+                        result.message || 'Une erreur est survenue.'
+                    );
+                }
+
+                contactStatus.className =
+                    'text-sm rounded-lg px-4 py-3 bg-green-500/10 text-green-600';
+
+                contactStatus.textContent =
+                    'Votre message a bien été envoyé. Je vous répondrai rapidement.';
+
+                contactForm.reset();
+
+            } catch (error) {
+
+                console.error(error);
+
+                contactStatus.className =
+                    'text-sm rounded-lg px-4 py-3 bg-red-500/10 text-red-600';
+
+                contactStatus.textContent =
+                    'Impossible d’envoyer le message. Veuillez réessayer ou me contacter directement.';
+
+            } finally {
+
+                contactSubmit.disabled = false;
+                contactSubmit.textContent = 'Envoyer le message';
+            }
+        });
     </script>
+
 </body>
 
 </html>
